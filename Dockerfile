@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy jar file into container
-COPY snake-1.jar /app/game.jar
+COPY /var/lib/jenkins/workspace/snake/target/snake-1.jar /app/game.jar
 
 # Expose a port if needed (for web-based games)
 EXPOSE 8080
