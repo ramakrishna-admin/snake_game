@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/snake-1.jar /app/game.jar
 
 # Expose port (optional)
-EXPOSE 9090
+
 
 # Run the application
 CMD ["java", "-jar", "game.jar"]
