@@ -1,5 +1,14 @@
+# Use OpenJDK base image
 FROM openjdk:17-jdk-slim
+
+# Set working directory
 WORKDIR /app
-COPY Game.java /app
-RUN javac Game.java
-CMD ["java", "Game"]
+
+# Copy jar file into container
+COPY game.jar /app/game.jar
+
+# Expose a port if needed (for web-based games)
+EXPOSE 8080
+
+# Run the game
+CMD ["java", "-jar", "game.jar"]
