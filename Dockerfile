@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the JAR file into the container
-COPY target/snake-1.jar /app/game.jar
+COPY target/snake-1.0.jar /app/game.jar
 
 # Expose the application port
 EXPOSE 9090
