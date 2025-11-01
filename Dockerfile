@@ -1,14 +1,14 @@
-# Use OpenJDK base image
+# Use OpenJDK as base image
 FROM openjdk:17-jdk-slim
+
+# Install Xvfb for headless display (optional)
+RUN apt-get update && apt-get install -y xvfb
 
 # Set working directory
 WORKDIR /app
 
-# Copy the JAR file into the container
+# Copy your compiled jar
 COPY target/snake-1.0.jar /app/game.jar
 
-# Expose the application port
-EXPOSE 9090
-
-# Run the application
-CMD ["java", "-jar", "game.jar"]
+# Run the game with virtual display
+CMD ["xvfb-run", "-a", "java", "-jar", "game.jar"]
