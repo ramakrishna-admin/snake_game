@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-game
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-game
+  template:
+    metadata:
+      labels:
+        app: java-game
+    spec:
+      containers:
+      - name: java-game
+        image: yourdockerhubusername/java-game:latest
+        ports:
+        - containerPort: 8080
+
